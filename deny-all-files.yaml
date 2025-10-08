@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: deny-one-file
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: wisecow
+  file:
+    matchPaths:
+    - path: /tmp/forbidden.txt
+  action: Block
+
+
