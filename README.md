@@ -113,3 +113,25 @@ git push origin main
 
 
 
+
+
+## Problem Statement 3 (Optional): KubeArmor Security Policy
+
+Although Problem Statement 3 is optional, I attempted to implement a KubeArmor file access blocking policy for the Wisecow application.
+
+### Steps performed:
+- Installed KubeArmor in Kubernetes cluster.
+- Created a security policy (`deny-one-file.yaml`) to block `/tmp/forbidden.txt`.
+- Applied the policy and restarted pods.
+- Tested file creation inside pod and checked `karmor logs`.
+- Found that the policy was applied to the pod but blocking did not occur (no alerts). Pod label matched policy selector.
+
+### Files included:
+- `deny-one-file.yaml` — policy definition.
+
+### Result:
+- No KubeArmor block was triggered for file creation. Work is documented as attempted; will troubleshoot further in future.
+
+
+
+
